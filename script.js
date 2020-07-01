@@ -2,6 +2,14 @@
 var gameSlug = ["portal-2", "path-of-exile", "warframe", "call-of-duty-warzone", "fifa-20"]
 var gameSpId = ["Portal_2", "Path_of_Exile", "Warframe", "Call_of_Duty_Warzone", "FIFA_20"]
 
+var portal2 = {name: "Portal 2", rawgId: "portal-2", gsName: "Portal_2", gamespotId: "", gsReviewId: ""};
+var pathOfExile = {name: "Path of Exile", rawgId: "path-of-exile", gsName: "Path_of_Exile", gamespotId: "", gsReviewId: ""};
+var warframe = {name: "Warframe", rawgId: "warframe", gsName: "Warframe", gamespotId: "", gsReviewId: ""};
+var codWarzone = {name: "Call of Duty: Warzone", rawgId: "call-of-duty-warzone", gsName: "Call_of_Duty_Warzone", gamespotId: "", gsReviewId: ""};
+var fifa20 = {name: "FIFA 20", rawgId: "fifa-20", gsName: "FIFA_20", gamespotId: "", gsReviewId: ""};
+
+var gameData = [portal2, pathOfExile, warframe, codWarzone, fifa20]
+
 for (i=0; i<5; i++) {
   console.log(i);
 var settings = {
