@@ -1,55 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <title>ConsoleLogging</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="splash.css">
-</head>
-
-<body>
-  <div id="printSearch">
-    <h1>FEATURED BYB REVIEWS</h1>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-2">
-        <p class="uPdate0">Portal 2</p>
-        <div id="vidPic"><img id="vicon0" src="" alt="game icon"></div>
-        <p class="card-text0" id="card-text0"></p>
-        <p class="card-hum0"></p>
-      </div>
-      <div class="col-md-2">
-        <p class="uPdate1">Path of Exile</p>
-        <div id="vidPic"><img id="vicon1" src="" alt="game icon"></div>
-        <p class="card-text1" id="card-text1"></p>
-        <p class="card-hum1"></p>
-      </div>
-      <div class="col-md-2">
-        <p class="uPdate2">WarFrame</p>
-        <div id="vidPic"><img id="vicon2" src="" alt="game icon"></div>
-        <p class="card-text2"></p>
-        <p class="card-hum2"></p>
-      </div>
-      <div class="col-md-2">
-        <p class="uPdate3">COD WarZone</p>
-        <div id="vidPic"><img id="vicon3" src="" alt="game icon"></div>
-        <p class="card-text3"></p>
-        <p class="card-hum3"></p>
-      </div>
-      <div class="col-md-2">
-        <p class="uPdate4">FIFA 2020</p>
-        <div id="vidPic"><img id="vicon4" src="" alt="game icon"></div>
-        <p class="card-text4"></p>
-        <p class="card-hum4"></p>
-      </div>
-    </div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript">
 
 var gameSlug = ["portal-2", "path-of-exile", "warframe", "call-of-duty-warzone", "fifa-20"]
 var gameSpId = ["Portal_2", "Path_of_Exile", "Warframe", "Call_of_Duty_Warzone", "FIFA_20"]
@@ -76,8 +25,6 @@ $.ajax(settings).done(function (response) {
   var redditUrl=response.reddit_url;
   var bgrndImg=response.background_image;
   
-  console.log(cardTarget);
-  $('cardTarget').text(metaCritic);
   console.log(metaCritic);
 
  
@@ -136,8 +83,3 @@ $.ajax(gameRev).done(function(gRevResp)
     ;
 // ---------------------------------------------------------
 
-  </script>
-
-</body>
-
-</html>
