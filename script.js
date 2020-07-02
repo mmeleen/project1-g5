@@ -34,12 +34,17 @@ function getRawg(game) {
 
   $.ajax(settings).done(function(response) {
     console.log(response);
-    // Test variables
+    // Variables
+    var description = response.description;
+    var rawDescription = response.description_raw;
+    var bgImg=response.background_image;
     var metaCritic=response.metacritic;
     var releasedOn=response.released;
+    var dev = response.developers[0].name;
     var redditUrl=response.reddit_url;
-    var bgrndImg=response.background_image;
-    console.log(metaCritic,releasedOn,redditUrl,bgrndImg);
+    var redditLogo = response.reddit_logo;
+    var website = response.website;
+    console.log(metaCritic, releasedOn, dev, redditUrl, website);
   });
 }
 
@@ -54,9 +59,12 @@ function getGs(game){
 
   $.ajax(gameSpot).done(function(gsResp){
     console.log(gsResp);
-    // Test variables
-    var imgCode = gsResp.results[0].image.square_tiny;
-    console.log(imgCode);
+    // Variables
+    var imgOriginal = gsResp.results[0].image.original;
+    var imgScreenTiny = gsResp.results[0].image.screen_tiny;
+    var imgSquareSmall = gsResp.results[0].image.square_small;
+    var imgSquareTiny = gsResp.results[0].image.square_tiny;
+    console.log(imgOriginal);
   });
 }
 
@@ -70,12 +78,11 @@ function getGsRev(game){
   }
 
   $.ajax(gameRev).done(function(gsRevResp){
-    console.log(gsRevResp)
-    // Test variables
+    console.log(gsRevResp);
     var revGood = gsRevResp.results[0].good;
-    console.log(revGood);
     var revBad = gsRevResp.results[0].bad;
-    console.log(revBad);
+    var gsScore = gsRevResp.results[0].score;
+    console.log(revGood, revBad, gsScore);
   });
 }
 
