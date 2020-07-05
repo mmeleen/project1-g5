@@ -31,6 +31,7 @@ button {
     display: block;
     margin-top: 3px;
     padding-left: 0;
+    box-shadow: 2px black;
 }
 
 #submit {
@@ -66,7 +67,7 @@ button {
     float: right;
     margin-top: 25px;
     margin-bottom: 25px;
-    height: 750px; 
+    height: 750px;
 }
 
 #L1 {
