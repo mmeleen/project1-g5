@@ -8,6 +8,8 @@ var fifa20 = {name: "FIFA 20", rawgId: "fifa-20", gsName: "FIFA_20", gsId: "4975
 
 // Array of game data objects
 var games = [portal2, pathOfExile, warframe, codWarzone, fifa20];
+var currentIndex = localStorage.getItem("current") || 0;
+console.log(games[currentIndex]);
 
 const searchInput = document.getElementById("txtInputSearch");
 const list = document.getElementById("list");
@@ -75,6 +77,8 @@ $(document).on("click", ".btn", displayGame);
 
 // Call renderButtons function when page first loads
 renderButtons();
+displayFirstGame();
+
 
 // Create button list
 function renderButtons(){
@@ -88,9 +92,19 @@ function renderButtons(){
   }
 }
 
+function displayFirstGame(){
+  var game = games[currentIndex];
+  RAWG(game);
+  GAMESPOT(game);
+  GAMESPOTRev(game);
+}
+
 // Populate the page with the game's information
 function displayGame () {
-  var game = games[$(this).attr("index")];
+  var index = $(this).attr("index");
+  var game = games[index];
+  currentIndex = localStorage.setItem("current", index);
+  console.log(currentIndex);
   console.log(game);
   
   RAWG(game);
