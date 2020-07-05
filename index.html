@@ -1,72 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Group Project</title>
+  <title>Before You Buy</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
-  <script src="https://kit.fontawesome.com/550527528e.js" crossorigin="anonymous"></script>
+  <!--WHAT THE HELL, IT WONT WORK -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+    integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="splash.css">
 </head>
+
 <body>
-  <div class="header header-footer">
-    BEFORE YOU BUY
-  </div>
+
+  <header class="row">
+
+    <div class="col-md-3  bg-primary">
+      <div><span id="lblInhouse">inhouse</span>
+        <span style="font-size: 2em;">GAME REVIEW</span>
+      </div>
+    </div>
+
+    <div class="col-md-6 bg-primary">
+      <span id="lblBeforeYouBuy" class="">BEFORE YOU BUY check out these TRENDING GAMES</span>
+    </div>
+
+    <div class="col-md-3 bg-primary">
+      <span class="fa fa-search"></span>
+      <input type="text" autofocus placeholder="search" class="form-control" autocomplete="on" name="search"
+        id="txtInputSearch">
+    </div>
+
+  </header>
+
+  <!-- Buttons -->
+  <section class="d-flex justify-content-center">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-12" id="buttons">
+        <!-- Buttons generated via js and dumped here ....... -->
+      </div>
+      <ul class="list-group" id="list"></ul>
+    </div>
+  </section>
+
   <div class="container">
     <div class="row">
-        <div class="col-12" style="text-align: center">
-            <input type="text">
-            <button style="display: inline;">...</button>
+
+      <div class="col-md-6 ">
+        <!-- Game image -->
+        <div class="card offset-md-1" style="width: 30rem" id="card-img">
+          <img id="game-img" class="card-img-top" alt="image">
+          <div class="card" id="card-game-name">
+            <div class="card-body">
+              <h5 class="card-title text-center" id="lblGameName"></h5>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Game description -->
+      <div class="col-md-6">
+        <div class="card text-center" id="card-description">
+          <div class="card-header">
+            <span id="lblGameDescription">Game Description</span>
+          </div>
+
+          <div class="card-body" id="txtGameDescription">
+          
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <div>
-        <div style="text-align: center;">
-            TRENDING
-            <div id="buttons-div" class="buttons"></div>
-        </div>
-    </div>
+    <!-- Metacritic and reviews -->
+    <div class="row">
 
-    <div class="pane">
-        <div class="left-container" >
-            <div class="aside" id="L1">
-                <img id="game-img" src="https://via.placeholder.com/200x240" alt="game img">
-            </div>
-
-            <div class="aside metacritic" id="L2">[METACRITIC]</div>
-
-            <div class="aside company-review" id="L3">
-              [COMPANY REVIEW]
-            </div>
+      <div class="col-md-12 d-flex justify-content-center">
+        <div class="card" style="width: 18rem">
+          <div class="card-body">
+            <!-- Metacritic -->
+            <h6 class="card-title text-center" id="lblMetacric">Metacritic</h6>
+            <p class="card-text text-center" id="txtMetacric">Metacritic</p>
+          </div>
         </div>
-        <div class="right-container">
-            <div id="main">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit nesciunt at praesentium
-                necessitatibus voluptas, corrupti exercitationem explicabo dignissimos minus illum blanditiis
-                ipsum quo aspernatur molestiae, est consequatur laudantium. Fugiat, quo.
-                Excepturi laborum corporis, magnam odit molestias odio maiores voluptatem nobis explicabo quis
-                aut distinctio molestiae nisi ad voluptas voluptatum tempore a quibusdam aspernatur eveniet,
-                illum possimus consequuntur nihil? Explicabo, consequuntur.
-                Sint assumenda exercitationem enim tenetur beatae quaerat! Quaerat excepturi magni repellendus
-                quam, labore animi eligendi quos optio inventore aspernatur! Sint, perspiciatis aliquid labore
-                nobis dolore accusamus quia sequi? Velit, eum.
-                Facere distinctio ipsa blanditiis enim nemo modi quaerat qui. Deleniti ducimus voluptatibus
-                saepe amet nostrum ut laborum voluptates accusamus porro temporibus aspernatur quia praesentium
-                nisi, magni quo quisquam illum. Eveniet.
-                Vel mollitia id, excepturi esse, incidunt maiores eaque vitae non impedit saepe amet ipsa.
-                Error, pariatur dolore. Nisi, sed. Consequatur aspernatur maiores porro, quae mollitia
-                necessitatibus sunt. Doloribus, ducimus asperiores!
-            </div>
+
+        <div class="card" style="width: 18rem">
+          <div class="card-body txtReviews">
+            <h6 class="card-title text-center" id="lblGoodReview">Good Reviews</h6>
+            <p class="card-text text-center" id="txtGoodReview"></p>
+          </div>
         </div>
+
+        <div class="card" style="width: 18rem">
+          <div class="card-body txtReviews">
+            <h6 class="card-title text-center" id="lblBadReview">Negative Reviews</h6>
+            <p class="card-text text-center" id="txtBadReview"></p>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
+  <script src="script.js" type="text/javascript"></script>
+</body>
 
-  <div class="footer">
-    Footer
-  </div>
-
-    <script src="script.js" type="text/javascript"></script>
-
-  </body>
 </html>
