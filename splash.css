@@ -1,123 +1,131 @@
-#vidPic {
-    visibility: hidden;
-}
-
-h1 {
-    text-align: center;
-}
-
-* {
-    box-sizing: border-box;
-}
-
 body {
-    
-}
-
-.header {
-    font-size: 1.25em;
-    font-weight: bold;
-    text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background-color: #0197F4;
-}
-
-.container {
-    height: 1000px
-}
-
-button {
-    display: block;
-    margin-top: 3px;
-    padding-left: 0;
-}
-
-#submit {
-    display: inline;
-}
-
-.buttons {
-    margin-bottom: 10px;
-}
-
-.game-btn {
-    display: inline-block;
-}
-
-.pane {
-    width: 100%;
-    height: 800px;
-    border: solid 1px black; 
-}
-
-.left-container {
-    border: solid 1px black; 
-    width: 33%; 
-    height: 750px; 
-    float: left; 
-    margin-top: 25px;
-    margin-bottom: 25px;
-}
-
-.right-container {
-    border: solid 1px black; 
-    width: 67%;
-    float: right;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    height: 750px; 
-}
-
-#L1 {
-    border: solid 1px black;
-    height: 250px;
-    width: 200px;
-}
-
-.metacritic {
-   
-}
-
-#L2 {
-    border: solid 1px black;
-    height: 100px;
-    width: 200px;
-}
-
-#L3 {
-    border: solid 1px black;
-    height: 100px;
-    width: 200px;
-    overflow: auto;
-    word-wrap: break-word;
-
-}
-.aside{
-    margin: auto;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    text-align: center;
-}
-
-#main {
-    border: solid 1px black;
-    height: 500px;
+    background-color: black;
+  }
+  
+  .card {
+    box-shadow: 2px 8px 12px 1px rgba(86, 117, 116, 0.45);
+    margin-top: 1em;     
+  }
+  
+  .btn {
     margin: 5px;
- 
-
+    width: 210px;
+  }
+  
+  header {
+  font-family: 'Metal Mania', cursive;
+  /* height: 50px; */ 
+  }
+  
+  #lblInhouse {
+  font-size: 1em;
+  color: white;
+  }
+  
+  #lblBeforeYouBuy {
+  font-size: 2em;
+  }
+  
+  #lblCheckout {
+  font-size:  2em;
+  }
+  
+  #inputSearch {
+  margin-top: 5px;
+  }
+  
+  .fa-search {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  }
+  
+  ul {
+  position: absolute;
+  right: 125px;
+  top: 10px;
+  }
+  
+  #card-img {
+  position: relative;
+  overflow: hidden;
+  }
+  
+  #card-img:after {
+  content: '';
+  display: block;
+  padding-top: 100%;
+  }
+  
+  #card-img img {
+  width: auto;
+  height: 100%;
+  max-width: none;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  }
+  
+  #card-game-name {
+      width: 30rem; 
+      position: absolute; 
+      bottom: 10px;
+      opacity: .7;
+  }
+  
+  #lblGameName {
+      font-weight: bold;
+  }
+  
+  #card-description {
+    /* float: left; */
+    width: 500px;
+    height: 480px;
+    opacity: .7;  
+  }
+  
+  #txtGameDescription {
+    overflow: auto;
+    text-align: left;
+  }
+  
+  #txtGameDescription::-webkit-scrollbar {
+  width: 4px;
+  }
+  #txtGameDescription::-webkit-scrollbar-track {
+  /* background: orange;        color of the tracking area */
+  background-color: orange;
+  }
+  #txtGameDescription::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.1);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid rgba(0,0,0,0.1);;  /* creates padding around scroll thumb */
+  }
+  
+  .col-md-12 > .card {
+  margin: 1em;
+  height: 7em;
+  }
+  
+  .txtReviews {
+      overflow: auto;
+      text-align: left;
+    }
     
-}
-
-.footer {
-    font-size: 1.25em;
-    font-weight: bold;
-    text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background-color: #0197F4;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-
+    .txtReviews::-webkit-scrollbar {
+    width: 4px;
+    }
+  
+    .txtReviews::-webkit-scrollbar-track {
+    /* background: orange;        color of the tracking area */
+    }
+  
+    .txtReviews::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.1);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid rgba(0,0,0,0.1);;  /* creates padding around scroll thumb */
+    }
+  
+  
+  
