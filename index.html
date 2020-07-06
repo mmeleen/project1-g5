@@ -47,22 +47,38 @@
 
   <div class="container">
     <div class="row">
-
-      <div class="col-md-6 ">
-        <!-- Game image -->
-        <div class="card offset-md-1" style="width: 30rem" id="card-img">
-          <img id="game-img" class="card-img-top" alt="image">
-          <div class="card" id="card-game-name">
+      <div class="col-md-4">
+        <div class="row">
+          <!-- Game image -->
+          <div class="card ml-3" style="/*width: 30rem*/" id="card-img">
+            <img id="game-img" class="card-img img-thumbnail" alt="image">
+            <!-- <div class="card" id="card-game-name">
+              <div class="card-body">
+                <h5 class="card-title text-center" id="lblGameName"></h5>
+              </div>
+            </div> -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="card ml-3 w-100" style="">
             <div class="card-body">
-              <h5 class="card-title text-center" id="lblGameName"></h5>
+              <!-- Metacritic -->
+              <h6 class="text-center" id="lblMeta"></h6>
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="card ml-3 w-100" style="">
+            <div class="card-body">
+              <!-- Metacritic -->
+              <h6 class="card-title text-center" id="lblDev">Metacritic</h6>
+            </div>
+          </div>
+        </div> 
       </div>
-
       <!-- Game description -->
-      <div class="col-md-6">
-        <div class="card text-center" id="card-description">
+      <div class="col-md-8">
+        <div class="card text-center h-100" id="card-description">
           <div class="card-header">
             <span id="lblGameDescription">Game Description</span>
           </div>

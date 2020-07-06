@@ -129,7 +129,7 @@ function RAWG(game) {
   $.ajax(qryURL).done(function(response) {
     console.log(response);
 
-    $("#lblGameName").text(game.name)
+    $("#lblGameDescription").text(game.name + " - Game Description")
 
     // Variables
     var description = response.description;
@@ -138,13 +138,13 @@ function RAWG(game) {
     $("#txtGameDescription").append(description);
 
     var bgImg = response.background_image;
-    // $("#game-img").attr("src", bgImg);
+    //$("#game-img").attr("src", bgImg);
     
     var bgImgAdditional = response.background_image_additional;
     $(".container").css("background-image", "url(" + bgImgAdditional + ")");
 
     var metaCritic = response.metacritic;
-    $("#txtMetacric").text(metaCritic);
+    $("#lblMeta").text("Metacritic Score: " + metaCritic);
 
     var releasedOn = response.released; 
     var dev = response.developers[0].name;
@@ -169,7 +169,7 @@ function GAMESPOT(game){
     console.log(response);
     // Variables
     var imgOriginal = response.results[0].image.original;
-    // $("#game-img").attr("src", imgOriginal);
+    //$("#game-img").attr("src", imgOriginal);
     var imgScreenTiny = response.results[0].image.screen_tiny;
     var imgSquareSmall = response.results[0].image.square_small;
     $("#game-img").attr("src", imgSquareSmall);
