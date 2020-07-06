@@ -11,66 +11,66 @@ var games = [portal2, pathOfExile, warframe, codWarzone, fifa20];
 var currentIndex = localStorage.getItem("current") || 0;
 console.log(games[currentIndex]);
 
-const searchInput = document.getElementById("txtInputSearch");
-const list = document.getElementById("btn-list");
+// const searchInput = document.getElementById("txtInputSearch");
+// const list = document.getElementById("btn-list");
 
 console.log(games);
 
-function setList(group) {
-  clearList();
-  for (const person of group) {
-    const item = document.createElement("li");
-    item.classList.add("list-group-item");
-    const text = document.createTextNode(person.name);
-    item.appendChild(text);
-    list.appendChild(item);
-  }
-  if (group.length === 0) {
-    setNoResults();
-  }
-}   
+// function setList(group) {
+//   clearList();
+//   for (const person of group) {
+//     const item = document.createElement("li");
+//     item.classList.add("list-group-item");
+//     const text = document.createTextNode(person.name);
+//     item.appendChild(text);
+//     list.appendChild(item);
+//   }
+//   if (group.length === 0) {
+//     setNoResults();
+//   }
+// }   
 
-function clearList() {
- while (list.firstChild) {
-   list.removeChild(list.firstChild);
- }
-}
+// function clearList() {
+//  while (list.firstChild) {
+//    list.removeChild(list.firstChild);
+//  }
+// }
 
-function setNoResults() {
-  const item = document.createElement("li");
-  item.classList.add("list-group-item");
-  const text = document.createTextNode('No results found');
-  item.appendChild(text);
-  list.appendChild(item);
-}
+// function setNoResults() {
+//   const item = document.createElement("li");
+//   item.classList.add("list-group-item");
+//   const text = document.createTextNode('No results found');
+//   item.appendChild(text);
+//   list.appendChild(item);
+// }
 
-function getRelevancy(value, searchTerm) {
-  if (value === searchTerm) {
-    return 2;
-  } else if (value.startsWith(searchTerm)) {
-    return 1;
-  } else if (value.includes(searchTerm)) {
-    return 0;
-  } else {
-    return -1;
-  }
-}
+// function getRelevancy(value, searchTerm) {
+//   if (value === searchTerm) {
+//     return 2;
+//   } else if (value.startsWith(searchTerm)) {
+//     return 1;
+//   } else if (value.includes(searchTerm)) {
+//     return 0;
+//   } else {
+//     return -1;
+//   }
+// }
 
-searchInput.addEventListener("keyup", (event) => {
+// searchInput.addEventListener("keyup", (event) => {
 
-  let value = event.target.value;
-    if (value && value.trim().length > 0) {
+//   let value = event.target.value;
+//     if (value && value.trim().length > 0) {
 
-      value = value.trim().toLowerCase();
-      setList(games.filter(person => {
-        return person.name.toLocaleLowerCase().includes(value);
-      }).sort((personA, personB) => {
-        return getRelevancy(personB.name, value) - getRelevancy(personA.name, value);
-      }));
-    } else {
-      clearList();
-    }
-})
+//       value = value.trim().toLowerCase();
+//       setList(games.filter(person => {
+//         return person.name.toLocaleLowerCase().includes(value);
+//       }).sort((personA, personB) => {
+//         return getRelevancy(personB.name, value) - getRelevancy(personA.name, value);
+//       }));
+//     } else {
+//       clearList();
+//     }
+// })
 
 // Click listener on buttons with class "game-btn"
 $(document).on("click", ".btn", displayGame);
