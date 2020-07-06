@@ -111,6 +111,14 @@ transform: translateX(-50%);
   opacity: .85;  
 }
 
+#gscore-card {
+  opacity: .90;
+}
+
+#meta-card {
+  opacity: .90;
+}
+
 #card-review {
   opacity: .85;
 }
