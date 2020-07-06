@@ -1,5 +1,12 @@
+html {
+  position: relative;
+}
+
 body {
   background-color: black;
+  min-height: 100vh;
+  /* width: 100vw; */
+  /* overflow-x: hidden; */
 }
 
 .container {
@@ -12,8 +19,7 @@ body {
 }
 
 .btn {
-  margin: 5px;
-  width: 210px;
+  /* width: 210px; */
 }
 
 header {
@@ -34,27 +40,27 @@ font-size: 2em;
 font-size:  2em;
 }
 
-#inputSearch {
+/* #inputSearch {
 margin-top: 5px;
-}
+} */
 
-.fa-search {
+/* .fa-search {
 position: relative;
 top: 8px;
 right: 15px;
-}
+} */
 
-#btn-list {
+/* #btn-list {
 position: absolute;
 right: 125px;
 top: 10px;
-}
-
-/* .footer{
-  position: absolute;
-  width: 100%;
-  bottom: 0;
 } */
+
+.footer{
+  position: absolute;
+  /* width: 100vw; */
+  bottom: 0;
+}
 
 /* #card-img {
 position: relative;
