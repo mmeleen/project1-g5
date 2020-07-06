@@ -85,7 +85,7 @@ function renderButtons(){
   $("#buttons").empty();
   for (var i = 0; i < games.length; i++) {
     var a = $("<button>");
-    a.addClass("btn btn-secondary");
+    a.addClass("btn btn-secondary m-2");
     a.attr("index", i);
     a.text(games[i].name);
     $("#buttons").append(a);
