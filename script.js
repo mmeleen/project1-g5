@@ -138,7 +138,7 @@ function RAWG(game) {
     $("#txtGameDescription").append(description);
 
     var bgImg = response.background_image;
-    $("#game-img").attr("src", bgImg);
+    // $("#game-img").attr("src", bgImg);
     
     var bgImgAdditional = response.background_image_additional;
     $(".container").css("background-image", "url(" + bgImgAdditional + ")");
@@ -158,7 +158,7 @@ function RAWG(game) {
 // GAMESPOT function
 function GAMESPOT(game){
   var qryURL = {
-    "url" : "https://cors-anywhere.herokuapp.com/http://www.gamespot.com/api/games/?api_key=39fbbff7ecbdf13274d9b4c9363a3c7cf7bb0a0f&format=json&filter=id:" + game.gsId,
+    "url" : "https://cors-any-m.herokuapp.com/www.gamespot.com/api/games/?api_key=39fbbff7ecbdf13274d9b4c9363a3c7cf7bb0a0f&format=json&filter=id:" + game.gsId,
     "async": true,
     "crossDomain" : true,
     "method" : "GET"
@@ -169,8 +169,11 @@ function GAMESPOT(game){
     console.log(response);
     // Variables
     var imgOriginal = response.results[0].image.original;
+    // $("#game-img").attr("src", imgOriginal);
     var imgScreenTiny = response.results[0].image.screen_tiny;
     var imgSquareSmall = response.results[0].image.square_small;
+    $("#game-img").attr("src", imgSquareSmall);
+
     var imgSquareTiny = response.results[0].image.square_tiny;
   
     // $("#game-img").attr("src", imgOriginal);
@@ -180,7 +183,7 @@ function GAMESPOT(game){
 // GAMESPOT review function
 function GAMESPOTRev(game){
   var qryURL = {
-    "url" : "https://cors-anywhere.herokuapp.com/http://www.gamespot.com/api/reviews/?api_key=39fbbff7ecbdf13274d9b4c9363a3c7cf7bb0a0f&format=json&filter=id:" + game.gsRevId,
+    "url" : "https://cors-any-m.herokuapp.com/www.gamespot.com/api/reviews/?api_key=39fbbff7ecbdf13274d9b4c9363a3c7cf7bb0a0f&format=json&filter=id:" + game.gsRevId,
     "async": true,
     "crossDomain" : true,
     "method" : "GET"
@@ -204,7 +207,7 @@ function STEAMSTAT() {
   // Steam (Not currently in use)
   var qryURL = {
     //"url": "https://cors-anywhere.herokuapp.com/steamspy.com/api.php?request=appdetails&appid=620",
-    "url" : "https://cors-anywhere.herokuapp.com/http://api.steampowered.com/ISteamUserStats/GetGlobalStatsForGame/v0001/?format=xml&appid=17740&count=1&name[0]=global.map.emp_isle",
+    "url" : "https://cors-any-m.herokuapp.com/api.steampowered.com/ISteamUserStats/GetGlobalStatsForGame/v0001/?format=xml&appid=17740&count=1&name[0]=global.map.emp_isle",
     "async": true,
     "crossDomain": true,
     "method": "GET"
