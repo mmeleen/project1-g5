@@ -12,7 +12,7 @@ var currentIndex = localStorage.getItem("current") || 0;
 console.log(games[currentIndex]);
 
 const searchInput = document.getElementById("txtInputSearch");
-const list = document.getElementById("list");
+const list = document.getElementById("btn-list");
 
 console.log(games);
 
@@ -212,6 +212,7 @@ function GAMESPOTRev(game){
     $("#list-bad").empty();
     for (var i = 0; i < goodArray.length; i++) {
       var a = $("<li>");
+      a.addClass("list-group-item");
       a.text(goodArray[i]);
       $("#list-good").append(a);
     }
@@ -220,6 +221,7 @@ function GAMESPOTRev(game){
     console.log(badArray);
     for (var i = 0; i < badArray.length; i++) {
       var a = $("<li>");
+      a.addClass("list-group-item");
       a.text(badArray[i]);
       $("#list-bad").append(a);
     }

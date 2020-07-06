@@ -39,15 +39,20 @@ margin-top: 5px;
 }
 
 .fa-search {
-position: absolute;
-top: 10px;
-right: 30px;
+position: relative;
+top: 8px;
+right: 15px;
 }
 
 #btn-list {
 position: absolute;
 right: 125px;
 top: 10px;
+}
+
+.footer{
+  bottom: 0;
+  width: 100%;
 }
 
 /* #card-img {
@@ -127,10 +132,10 @@ border-radius: 20px;       /* roundness of the scroll thumb */
 border: 3px solid rgba(0,0,0,0.1);;  /* creates padding around scroll thumb */
 }
 
-.col-md-12 > .card {
+/* .col-md-12 > .card {
 margin: 1em;
 height: 7em;
-}
+} */
 
 .txtReviews {
     overflow: auto;
