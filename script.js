@@ -145,6 +145,13 @@ function RAWG(game) {
 
     var metaCritic = response.metacritic;
     $("#lblMeta").text("Metacritic Score: " + metaCritic);
+    if (metaCritic < 70){
+      $("#meta-card").css("background-color", "red");
+    } else if (70 <= metaCritic && metaCritic <= 85) {
+      $("#meta-card").css("background-color", "yellow");
+    } else {
+      $("#meta-card").css("background-color", "green");
+    }
 
     var releasedOn = response.released; 
     var dev = response.developers[0].name;
