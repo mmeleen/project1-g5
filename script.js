@@ -153,8 +153,10 @@ function RAWG(game) {
       $("#meta-card").css("background-color", "green");
     }
 
-    var releasedOn = response.released; 
+    var releasedOn = response.released;
+    $("#lblRel").text("Released: " + releasedOn); 
     var dev = response.developers[0].name;
+    $("#lblDev").text("Developer: " + dev);
     var redditUrl = response.reddit_url;
     var redditLogo = response.reddit_logo;
     var website = response.website;
