@@ -50,10 +50,11 @@ right: 125px;
 top: 10px;
 }
 
-.footer{
-  bottom: 0;
+/* .footer{
+  position: absolute;
   width: 100%;
-}
+  bottom: 0;
+} */
 
 /* #card-img {
 position: relative;
@@ -96,7 +97,7 @@ transform: translateX(-50%);
 }
 
 #details-card {
-  opacity: .75;
+  opacity: .85;
 }
 
 #card-description {
@@ -107,11 +108,11 @@ transform: translateX(-50%);
   height: auto;
   max-width: none;
   position: absolute; */
-  opacity: .7;  
+  opacity: .85;  
 }
 
 #card-review {
-  opacity: .75;
+  opacity: .85;
 }
 
 #txtGameDescription {
