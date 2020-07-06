@@ -8,73 +8,77 @@ var fifa20 = {name: "FIFA 20", rawgId: "fifa-20", gsName: "FIFA_20", gsId: "4975
 
 // Array of game data objects
 var games = [portal2, pathOfExile, warframe, codWarzone, fifa20];
+var currentIndex = localStorage.getItem("current") || 0;
+console.log(games[currentIndex]);
 
-const searchInput = document.getElementById("txtInputSearch");
-const list = document.getElementById("list");
+// const searchInput = document.getElementById("txtInputSearch");
+// const list = document.getElementById("btn-list");
 
 console.log(games);
 
-function setList(group) {
-  clearList();
-  for (const person of group) {
-    const item = document.createElement("li");
-    item.classList.add("list-group-item");
-    const text = document.createTextNode(person.name);
-    item.appendChild(text);
-    list.appendChild(item);
-  }
-  if (group.length === 0) {
-    setNoResults();
-  }
-}   
+// function setList(group) {
+//   clearList();
+//   for (const person of group) {
+//     const item = document.createElement("li");
+//     item.classList.add("list-group-item");
+//     const text = document.createTextNode(person.name);
+//     item.appendChild(text);
+//     list.appendChild(item);
+//   }
+//   if (group.length === 0) {
+//     setNoResults();
+//   }
+// }   
 
-function clearList() {
- while (list.firstChild) {
-   list.removeChild(list.firstChild);
- }
-}
+// function clearList() {
+//  while (list.firstChild) {
+//    list.removeChild(list.firstChild);
+//  }
+// }
 
-function setNoResults() {
-  const item = document.createElement("li");
-  item.classList.add("list-group-item");
-  const text = document.createTextNode('No results found');
-  item.appendChild(text);
-  list.appendChild(item);
-}
+// function setNoResults() {
+//   const item = document.createElement("li");
+//   item.classList.add("list-group-item");
+//   const text = document.createTextNode('No results found');
+//   item.appendChild(text);
+//   list.appendChild(item);
+// }
 
-function getRelevancy(value, searchTerm) {
-  if (value === searchTerm) {
-    return 2;
-  } else if (value.startsWith(searchTerm)) {
-    return 1;
-  } else if (value.includes(searchTerm)) {
-    return 0;
-  } else {
-    return -1;
-  }
-}
+// function getRelevancy(value, searchTerm) {
+//   if (value === searchTerm) {
+//     return 2;
+//   } else if (value.startsWith(searchTerm)) {
+//     return 1;
+//   } else if (value.includes(searchTerm)) {
+//     return 0;
+//   } else {
+//     return -1;
+//   }
+// }
 
-searchInput.addEventListener("keyup", (event) => {
+// searchInput.addEventListener("keyup", (event) => {
 
-  let value = event.target.value;
-    if (value && value.trim().length > 0) {
+//   let value = event.target.value;
+//     if (value && value.trim().length > 0) {
 
-      value = value.trim().toLowerCase();
-      setList(games.filter(person => {
-        return person.name.toLocaleLowerCase().includes(value);
-      }).sort((personA, personB) => {
-        return getRelevancy(personB.name, value) - getRelevancy(personA.name, value);
-      }));
-    } else {
-      clearList();
-    }
-})
+//       value = value.trim().toLowerCase();
+//       setList(games.filter(person => {
+//         return person.name.toLocaleLowerCase().includes(value);
+//       }).sort((personA, personB) => {
+//         return getRelevancy(personB.name, value) - getRelevancy(personA.name, value);
+//       }));
+//     } else {
+//       clearList();
+//     }
+// })
 
 // Click listener on buttons with class "game-btn"
 $(document).on("click", ".btn", displayGame);
 
 // Call renderButtons function when page first loads
 renderButtons();
+displayFirstGame();
+
 
 // Create button list
 function renderButtons(){
@@ -88,9 +92,19 @@ function renderButtons(){
   }
 }
 
+function displayFirstGame(){
+  var game = games[currentIndex];
+  RAWG(game);
+  GAMESPOT(game);
+  GAMESPOTRev(game);
+}
+
 // Populate the page with the game's information
 function displayGame () {
-  var game = games[$(this).attr("index")];
+  var index = $(this).attr("index");
+  var game = games[index];
+  currentIndex = localStorage.setItem("current", index);
+  console.log(currentIndex);
   console.log(game);
   
   RAWG(game);
@@ -115,7 +129,7 @@ function RAWG(game) {
   $.ajax(qryURL).done(function(response) {
     console.log(response);
 
-    $("#lblGameName").text(game.name)
+    $("#lblGameDescription").text(game.name + " - Game Description")
 
     // Variables
     var description = response.description;
@@ -124,19 +138,33 @@ function RAWG(game) {
     $("#txtGameDescription").append(description);
 
     var bgImg = response.background_image;
-    $("#game-img").attr("src", bgImg);
+    //$("#game-img").attr("src", bgImg);
     
     var bgImgAdditional = response.background_image_additional;
     $(".container").css("background-image", "url(" + bgImgAdditional + ")");
 
     var metaCritic = response.metacritic;
-    $("#txtMetacric").text(metaCritic);
+    $("#lblMeta").text("Metacritic Score: " + metaCritic);
+    if (metaCritic < 60){
+      $("#meta-card").css("background-color", "red");
+    } else if (60 <= metaCritic && metaCritic < 80) {
+      $("#meta-card").css("background-color", "yellow");
+    } else {
+      $("#meta-card").css("background-color", "green");
+    }
 
-    var releasedOn = response.released; 
+    var releasedOn = response.released;
+    $("#lblRel").text("Released: " + releasedOn); 
     var dev = response.developers[0].name;
+    $("#lblDev").text("Developer: " + dev);
     var redditUrl = response.reddit_url;
     var redditLogo = response.reddit_logo;
-    var website = response.website;
+    var site = response.website;
+    $("#lblWeb").text(site);
+    $("#lblWeb").attr("href", site);
+    $("#lblWeb").attr("target", "_blank");
+
+    console.log(site);
     // console.log(metaCritic, releasedOn, dev, redditUrl, website);
   });
 }
@@ -144,7 +172,7 @@ function RAWG(game) {
 // GAMESPOT function
 function GAMESPOT(game){
   var qryURL = {
-    "url" : "https://cors-anywhere.herokuapp.com/http://www.gamespot.com/api/games/?api_key=39fbbff7ecbdf13274d9b4c9363a3c7cf7bb0a0f&format=json&filter=id:" + game.gsId,
+    "url" : "https://cors-any-m.herokuapp.com/www.gamespot.com/api/games/?api_key=39fbbff7ecbdf13274d9b4c9363a3c7cf7bb0a0f&format=json&filter=id:" + game.gsId,
     "async": true,
     "crossDomain" : true,
     "method" : "GET"
@@ -155,8 +183,11 @@ function GAMESPOT(game){
     console.log(response);
     // Variables
     var imgOriginal = response.results[0].image.original;
+    //$("#game-img").attr("src", imgOriginal);
     var imgScreenTiny = response.results[0].image.screen_tiny;
     var imgSquareSmall = response.results[0].image.square_small;
+    $("#game-img").attr("src", imgSquareSmall);
+
     var imgSquareTiny = response.results[0].image.square_tiny;
   
     // $("#game-img").attr("src", imgOriginal);
@@ -166,7 +197,7 @@ function GAMESPOT(game){
 // GAMESPOT review function
 function GAMESPOTRev(game){
   var qryURL = {
-    "url" : "https://cors-anywhere.herokuapp.com/http://www.gamespot.com/api/reviews/?api_key=39fbbff7ecbdf13274d9b4c9363a3c7cf7bb0a0f&format=json&filter=id:" + game.gsRevId,
+    "url" : "https://cors-any-m.herokuapp.com/www.gamespot.com/api/reviews/?api_key=39fbbff7ecbdf13274d9b4c9363a3c7cf7bb0a0f&format=json&filter=id:" + game.gsRevId,
     "async": true,
     "crossDomain" : true,
     "method" : "GET"
@@ -175,8 +206,34 @@ function GAMESPOTRev(game){
   $.ajax(qryURL).done(function(response){
     console.log(response);
     var goodReview = response.results[0].good;
+    var goodArray = goodReview.split("|");
+    console.log(goodArray);
+    $("#list-good").empty();
+    $("#list-bad").empty();
+    for (var i = 0; i < goodArray.length; i++) {
+      var a = $("<li>");
+      a.addClass("list-group-item");
+      a.text(goodArray[i]);
+      $("#list-good").append(a);
+    }
     var badReview = response.results[0].bad;
+    var badArray = badReview.split("|");
+    console.log(badArray);
+    for (var i = 0; i < badArray.length; i++) {
+      var a = $("<li>");
+      a.addClass("list-group-item");
+      a.text(badArray[i]);
+      $("#list-bad").append(a);
+    }
     var gsScore = response.results[0].score;
+    $("#lblGScore").text("GameSpot Rating: " + gsScore);
+    if (gsScore < 6){
+      $("#gscore-card").css("background-color", "red");
+    } else if (6 <= gsScore && gsScore < 8) {
+      $("#gscore-card").css("background-color", "yellow");
+    } else {
+      $("#gscore-card").css("background-color", "green");
+    }
     $("#txtGoodReview").text(goodReview);
     $("#txtBadReview").text(badReview);
      console.log(goodReview);
@@ -190,7 +247,7 @@ function STEAMSTAT() {
   // Steam (Not currently in use)
   var qryURL = {
     //"url": "https://cors-anywhere.herokuapp.com/steamspy.com/api.php?request=appdetails&appid=620",
-    "url" : "https://cors-anywhere.herokuapp.com/http://api.steampowered.com/ISteamUserStats/GetGlobalStatsForGame/v0001/?format=xml&appid=17740&count=1&name[0]=global.map.emp_isle",
+    "url" : "https://cors-any-m.herokuapp.com/api.steampowered.com/ISteamUserStats/GetGlobalStatsForGame/v0001/?format=xml&appid=17740&count=1&name[0]=global.map.emp_isle",
     "async": true,
     "crossDomain": true,
     "method": "GET"
