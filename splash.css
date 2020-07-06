@@ -44,7 +44,7 @@ top: 10px;
 right: 30px;
 }
 
-ul {
+#btn-list {
 position: absolute;
 right: 125px;
 top: 10px;
@@ -75,7 +75,7 @@ transform: translateX(-50%);
     width: 30rem; 
     position: absolute; 
     bottom: 10px;
-    opacity: .7;
+    opacity: .75;
 }
 
 #lblGameName {
@@ -84,6 +84,14 @@ transform: translateX(-50%);
 
 #lblGameDescription {
   font-weight: bold;
+}
+
+#lblGameReview {
+  font-weight: bold;
+}
+
+#details-card {
+  opacity: .75;
 }
 
 #card-description {
@@ -95,6 +103,10 @@ transform: translateX(-50%);
   max-width: none;
   position: absolute; */
   opacity: .7;  
+}
+
+#card-review {
+  opacity: .75;
 }
 
 #txtGameDescription {

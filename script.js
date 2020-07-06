@@ -145,9 +145,9 @@ function RAWG(game) {
 
     var metaCritic = response.metacritic;
     $("#lblMeta").text("Metacritic Score: " + metaCritic);
-    if (metaCritic < 70){
+    if (metaCritic < 60){
       $("#meta-card").css("background-color", "red");
-    } else if (70 <= metaCritic && metaCritic <= 85) {
+    } else if (60 <= metaCritic && metaCritic < 80) {
       $("#meta-card").css("background-color", "yellow");
     } else {
       $("#meta-card").css("background-color", "green");
@@ -159,7 +159,12 @@ function RAWG(game) {
     $("#lblDev").text("Developer: " + dev);
     var redditUrl = response.reddit_url;
     var redditLogo = response.reddit_logo;
-    var website = response.website;
+    var site = response.website;
+    $("#lblWeb").text(site);
+    $("#lblWeb").attr("href", site);
+    $("#lblWeb").attr("target", "_blank");
+
+    console.log(site);
     // console.log(metaCritic, releasedOn, dev, redditUrl, website);
   });
 }
@@ -201,8 +206,32 @@ function GAMESPOTRev(game){
   $.ajax(qryURL).done(function(response){
     console.log(response);
     var goodReview = response.results[0].good;
+    var goodArray = goodReview.split("|");
+    console.log(goodArray);
+    $("#list-good").empty();
+    $("#list-bad").empty();
+    for (var i = 0; i < goodArray.length; i++) {
+      var a = $("<li>");
+      a.text(goodArray[i]);
+      $("#list-good").append(a);
+    }
     var badReview = response.results[0].bad;
+    var badArray = badReview.split("|");
+    console.log(badArray);
+    for (var i = 0; i < badArray.length; i++) {
+      var a = $("<li>");
+      a.text(badArray[i]);
+      $("#list-bad").append(a);
+    }
     var gsScore = response.results[0].score;
+    $("#lblGScore").text("GameSpot Rating: " + gsScore);
+    if (gsScore < 6){
+      $("#gscore-card").css("background-color", "red");
+    } else if (6 <= gsScore && gsScore < 8) {
+      $("#gscore-card").css("background-color", "yellow");
+    } else {
+      $("#gscore-card").css("background-color", "green");
+    }
     $("#txtGoodReview").text(goodReview);
     $("#txtBadReview").text(badReview);
      console.log(goodReview);
